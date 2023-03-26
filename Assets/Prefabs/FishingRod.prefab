@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 883736706224482633}
   - component: {fileID: 883736706224482639}
   - component: {fileID: 8058354075536585052}
-  m_Layer: 0
+  - component: {fileID: 4650618439465203890}
+  m_Layer: 6
   m_Name: FishingRod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045020296229259952}
-  m_LocalRotation: {x: 0.9201394, y: 0.064914316, z: 0.05149676, w: -0.3827241}
+  m_LocalRotation: {x: -0.9201383, y: -0.0649154, z: -0.051499743, w: 0.38272613}
   m_LocalPosition: {x: -0.43, y: -0.86, z: 0.4}
   m_LocalScale: {x: 100, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
@@ -38,7 +39,7 @@ Transform:
   - {fileID: 8110298955846208703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -134.683, y: -3.6759949, z: -6.5360107}
 --- !u!33 &2327426174055585769
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -267,6 +268,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ControllerLeft: {fileID: 0}
   ControllerRight: {fileID: 0}
+  Score: 0
+--- !u!82 &4650618439465203890
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045020296229259952}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bc2e2816a5e75f940a62b1b1f766ccdc,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3ef8369efaa9b4e47a5678c49246b99e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4274782666369122285
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +378,7 @@ GameObject:
   - component: {fileID: 2876774935300183596}
   - component: {fileID: 7415529100580884678}
   - component: {fileID: 7415529100580884677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fishing_rod_hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}

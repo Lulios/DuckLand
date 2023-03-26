@@ -15,6 +15,8 @@ public class fishing : MonoBehaviour
     private bool isFished = false;
     private Pool poolScript;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,7 @@ public class fishing : MonoBehaviour
             savedY = float.MinValue;
             isFished = false;
             Score++;
+            gameObject.GetComponent<AudioSource>().Play(0);
         }
     }
 
@@ -49,6 +52,7 @@ public class fishing : MonoBehaviour
             col.gameObject.transform.SetParent(this.transform);
             savedY = col.gameObject.transform.position.y;
             duck = col.gameObject;
+            duck.GetComponents<AudioSource>()[Random.Range(0, duck.GetComponents<AudioSource>().Length)].Play(0);
             ControllerLeft.SendHapticImpulse(1f, 0.3f);
             ControllerRight.SendHapticImpulse(1f, 0.3f);
             duckScript = duck.GetComponent<Follower>();
