@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5781562708853647809}
   - component: {fileID: 5781562708852407057}
   - component: {fileID: 5781562707461587579}
-  - component: {fileID: 5781562708854413612}
   - component: {fileID: 5843206524907035715}
   - component: {fileID: 779945560977079242}
   - component: {fileID: 1040794493497795759}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 6046150957595023563}
   - component: {fileID: 5039756466849402457}
   - component: {fileID: 7251728170984081344}
+  - component: {fileID: 7639134899530850731}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Duck
@@ -106,36 +106,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ccdb9f73720f5c14e9096aaab8ef5483, type: 3}
---- !u!114 &5781562708854413612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781562708854792231}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d50e97750385f44ab7e3777f4cba334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Meshes:
-  - {fileID: 4300000, guid: bba15a401835a274586eb834aaa72480, type: 3}
-  - {fileID: 4300000, guid: 73e88d599ffc72e4fb71ff486dabc515, type: 3}
-  - {fileID: 4300000, guid: 6a74a937c6f7a534aaa76ee893d9ddeb, type: 3}
-  - {fileID: 4300000, guid: dfeed8661f2a0a6448eeced2f917c99d, type: 3}
-  - {fileID: 4300000, guid: b61e71f8bc623f243a4827373631ed5d, type: 3}
-  - {fileID: 4300000, guid: d3a659c406a6b6c4dbe49af16b0e412a, type: 3}
-  - {fileID: 4300000, guid: ce69d3c7a4f70ae40b6f97416c93c2c5, type: 3}
-  - {fileID: 4300000, guid: e792e604934a3d74eba174688a1d4c3e, type: 3}
-  - {fileID: 4300000, guid: ccdb9f73720f5c14e9096aaab8ef5483, type: 3}
-  - {fileID: 4300000, guid: 05230f4f275270a4b9150087d3d07d80, type: 3}
-  - {fileID: 4300000, guid: e9b20f339e41d42409993f01aec5ac61, type: 3}
-  - {fileID: 4300000, guid: 6f8500d9b2e1cd340be53bee0f9b8962, type: 3}
-  - {fileID: 4300000, guid: 4a64f5e7a1e0d9a4884883d74c91f936, type: 3}
-  - {fileID: 4300000, guid: b16ba7bf9e24764469c69d2b339a7680, type: 3}
-  - {fileID: 4300000, guid: 6b4e336501cde914f9c42053018abd57, type: 3}
-  pathCreator: {fileID: 0}
-  speed: 2
 --- !u!82 &5843206524907035715
 AudioSource:
   m_ObjectHideFlags: 0
@@ -815,3 +785,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7639134899530850731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781562708854792231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0106b12b1903c418e8492299672e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Meshes:
+  - {fileID: 4300000, guid: bba15a401835a274586eb834aaa72480, type: 3}
+  - {fileID: 4300000, guid: 73e88d599ffc72e4fb71ff486dabc515, type: 3}
+  - {fileID: 4300000, guid: 6a74a937c6f7a534aaa76ee893d9ddeb, type: 3}
+  - {fileID: 4300000, guid: dfeed8661f2a0a6448eeced2f917c99d, type: 3}
+  - {fileID: 4300000, guid: b61e71f8bc623f243a4827373631ed5d, type: 3}
+  - {fileID: 4300000, guid: d3a659c406a6b6c4dbe49af16b0e412a, type: 3}
+  - {fileID: 4300000, guid: ce69d3c7a4f70ae40b6f97416c93c2c5, type: 3}
+  - {fileID: 4300000, guid: e792e604934a3d74eba174688a1d4c3e, type: 3}
+  - {fileID: 4300000, guid: ccdb9f73720f5c14e9096aaab8ef5483, type: 3}
+  - {fileID: 4300000, guid: 05230f4f275270a4b9150087d3d07d80, type: 3}
+  - {fileID: 4300000, guid: e9b20f339e41d42409993f01aec5ac61, type: 3}
+  - {fileID: 4300000, guid: 6f8500d9b2e1cd340be53bee0f9b8962, type: 3}
+  - {fileID: 4300000, guid: 4a64f5e7a1e0d9a4884883d74c91f936, type: 3}
+  - {fileID: 4300000, guid: b16ba7bf9e24764469c69d2b339a7680, type: 3}
+  - {fileID: 4300000, guid: 6b4e336501cde914f9c42053018abd57, type: 3}
+  ControllerLeft: {fileID: 0}
+  ControllerRight: {fileID: 0}
+  WhackPoolScript: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  duckSpeed: 0.25
+  duckCaughtSpeed: 0.8
+  YminToBeCaught: 0.05
+  wantedPosition: {x: 0, y: 0, z: 0}
+  ducksOut: 0
+  _defaultY: 0
