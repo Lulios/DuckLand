@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreCount : MonoBehaviour
 {
-    [SerializeField] private Text Score;
-    private fishing fishingScript;
+    [SerializeField] private Text score;
+    private Fishing _fishingScript;
 
     void Start()
     {
-        fishingScript = FindObjectOfType<fishing>();
+        _fishingScript = FindObjectOfType<Fishing>();
     }
 
     void Update()
     {
-        Score.text = fishingScript.Score.ToString();
+        score.text = _fishingScript.score.ToString();
     }
 }

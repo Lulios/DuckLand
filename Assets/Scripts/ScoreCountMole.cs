@@ -15,6 +15,6 @@ public class ScoreCountMole : MonoBehaviour
 
     void Update()
     {
-        Score.text = WhackPoolScript.Score.ToString();
+        Score.text = WhackPoolScript.score.ToString();
     }
 }

@@ -1,63 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class fishing : MonoBehaviour
+public class Fishing : MonoBehaviour
 {
-    public XRBaseController ControllerLeft;
-    public XRBaseController ControllerRight;
-    public int Score = 0;
-
-    private float savedY = float.MinValue;
-    private GameObject duck;
-    private Follower duckScript;
-    private bool isFished = false;
-    private Pool poolScript;
+    public int score = 0;
+    
+    [SerializeField] private XRBaseController controllerLeft;
+    [SerializeField] private XRBaseController controllerRight;
+    private float _savedY = float.MinValue;
+    private GameObject _duck;
+    private Follower _duckScript;
+    private bool _isFished = false;
+    private Pool _poolScript;
 
     
 
     // Start is called before the first frame update
     void Start()
     {
-        poolScript = FindObjectOfType<Pool>();
+        _poolScript = FindObjectOfType<Pool>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (savedY != float.MinValue && (duck.transform.position.y - savedY)  > 1.5)
+        if (_savedY != float.MinValue && (_duck.transform.position.y - _savedY)  > 1.5)
         {
-            for (int i = 0; i < poolScript.ducks.Count; i++)
+            for (int i = 0; i < _poolScript.ducks.Count; i++)
             {
-                if (poolScript.ducks[i] == duck)
+                if (_poolScript.ducks[i] == _duck)
                 {
-                    poolScript.ducks.RemoveAt(i);
+                    _poolScript.ducks.RemoveAt(i);
                 }
             }
 
-            Destroy(duck);
-            duck = null;
-            savedY = float.MinValue;
-            isFished = false;
-            Score++;
+            Destroy(_duck);
+            _duck = null;
+            _savedY = float.MinValue;
+            _isFished = false;
+            score++;
             gameObject.GetComponent<AudioSource>().Play(0);
         }
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "Duck" && !isFished)
+        if(CompareTag("Duck") && !_isFished)
         {
             col.gameObject.transform.SetParent(this.transform);
-            savedY = col.gameObject.transform.position.y;
-            duck = col.gameObject;
-            duck.GetComponents<AudioSource>()[Random.Range(0, duck.GetComponents<AudioSource>().Length)].Play(0);
-            ControllerLeft.SendHapticImpulse(1f, 0.3f);
-            ControllerRight.SendHapticImpulse(1f, 0.3f);
-            duckScript = duck.GetComponent<Follower>();
-            duckScript.enabled = !duckScript.enabled;
-            isFished = true;
+            _savedY = col.gameObject.transform.position.y;
+            _duck = col.gameObject;
+            _duck.GetComponents<AudioSource>()[Random.Range(0, _duck.GetComponents<AudioSource>().Length)].Play(0);
+            controllerLeft.SendHapticImpulse(1f, 0.3f);
+            controllerRight.SendHapticImpulse(1f, 0.3f);
+            _duckScript = _duck.GetComponent<Follower>();
+            _duckScript.enabled = !_duckScript.enabled;
+            _isFished = true;
         }
     }
 }

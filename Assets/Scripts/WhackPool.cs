@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +6,17 @@ using Random = UnityEngine.Random;
 
 public class WhackPool : MonoBehaviour
 {
-    public List<Mesh> Meshes;
-    
-    public XRBaseController ControllerLeft;
-    public XRBaseController ControllerRight;
-    public WhackPool WhackPoolScript;
-    
     public List<GameObject> ducks;
     public List<GameObject> spawnPoints;
     public List<GameObject> freeSpawnPoints;
-    public float WantedY;
 
-    public int Score = 0;
-
+    public int score = 0;
+    
+    [SerializeField] private List<Mesh> meshes;
+    [SerializeField] private XRBaseController controllerLeft;
+    [SerializeField] private XRBaseController controllerRight;
+    [SerializeField] private WhackPool whackPoolScript;
+    [SerializeField] private float wantedY;
     [SerializeField] private GameObject duck;
     private bool CR_running = false;
 
@@ -43,14 +40,15 @@ public class WhackPool : MonoBehaviour
         ducks.Add(Instantiate(duck, gameObject.transform));
         int random = Random.Range(0, freeSpawnPoints.Count);
         ducks[^1].transform.position = freeSpawnPoints[random].transform.position;
+        ducks[^1].GetComponent<MeshFilter>().mesh = meshes[Random.Range(0, meshes.Count)];
         
         Mole duckScript = ducks[^1].GetComponent<Mole>();
-        duckScript.ControllerLeft = ControllerLeft;
-        duckScript.ControllerRight = ControllerRight;
-        duckScript.WhackPoolScript = WhackPoolScript;
+        duckScript.controllerLeft = controllerLeft;
+        duckScript.controllerRight = controllerRight;
+        duckScript.whackPoolScript = whackPoolScript;
         duckScript.spawnPoint = freeSpawnPoints[random];
 
-        duckScript.wantedPosition = new Vector3(freeSpawnPoints[random].transform.localPosition.x, WantedY,
+        duckScript.wantedPosition = new Vector3(freeSpawnPoints[random].transform.localPosition.x, wantedY,
             freeSpawnPoints[random].transform.localPosition.z);
         duckScript.ducksOut = 0;
         freeSpawnPoints.RemoveAt(random);

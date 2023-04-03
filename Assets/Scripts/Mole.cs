@@ -1,45 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Mole : MonoBehaviour
 {
-    public List<Mesh> Meshes;
-    public XRBaseController ControllerLeft;
-    public XRBaseController ControllerRight;
-    public WhackPool WhackPoolScript;
+    public XRBaseController controllerLeft;
+    public XRBaseController controllerRight;
+    public WhackPool whackPoolScript;
     public GameObject spawnPoint;
-    public float duckSpeed;
-    public float duckCaughtSpeed;
-    public float YminToBeCaught;
     public Vector3 wantedPosition;
     public int ducksOut;
-    public float _defaultY;
+    
+    [SerializeField] private float duckSpeed;
+    [SerializeField] private float duckCaughtSpeed;
+    [SerializeField] private float yminToBeCaught;
+    private float _defaultY;
     private Vector3 _duckPos;
     private Vector3 _defaultPos;
-    private bool duckCaught = false;
+    private bool _duckCaught = false;
 
     void Start()
     {
         _defaultY = spawnPoint.transform.localPosition.y;
-        GetComponent<MeshFilter>().mesh = Meshes[Random.Range(0, Meshes.Count)];
     }
 
     // Update is called once per frame
     void Update()
     {
         _duckPos = transform.localPosition;
-        _defaultPos = new Vector3(transform.localPosition.x,  _defaultY, transform.localPosition.z);
-        if (duckCaught)
+        _defaultPos = new Vector3(_duckPos.x,  _defaultY, _duckPos.z);
+        if (_duckCaught)
         {
             if (Vector3.Distance(_defaultPos, _duckPos) > 0.001f)
-            {
-            transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckCaughtSpeed * Time.deltaTime);
+            { 
+                transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckCaughtSpeed * Time.deltaTime);
             }
             else
             {
-                WhackPoolScript.freeSpawnPoints.Add(spawnPoint);
+                whackPoolScript.freeSpawnPoints.Add(spawnPoint);
                 Destroy(gameObject);
             }
         }
@@ -60,9 +58,9 @@ public class Mole : MonoBehaviour
             }
             else if (ducksOut == 1)
             {
-                int index = WhackPoolScript.ducks.IndexOf(gameObject);
-                WhackPoolScript.ducks.RemoveAt(index);
-                WhackPoolScript.freeSpawnPoints.Add(spawnPoint);
+                int index = whackPoolScript.ducks.IndexOf(gameObject);
+                whackPoolScript.ducks.RemoveAt(index);
+                whackPoolScript.freeSpawnPoints.Add(spawnPoint);
                 Destroy(gameObject);
             }
         }
@@ -83,19 +81,19 @@ public class Mole : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (transform.localPosition.y >= YminToBeCaught && duckCaught == false && col.tag == "Player")
+        if (transform.localPosition.y >= yminToBeCaught && _duckCaught == false && CompareTag("Player"))
         {
             //col.gameObject.transform.SetParent(this.transform);
             //savedY = col.gameObject.transform.position.y;
             GetComponents<AudioSource>()[Random.Range(0, GetComponents<AudioSource>().Length)].Play(0);
-            ControllerLeft.SendHapticImpulse(1f, 0.3f);
-            ControllerRight.SendHapticImpulse(1f, 0.3f);
+            controllerLeft.SendHapticImpulse(1f, 0.3f);
+            controllerRight.SendHapticImpulse(1f, 0.3f);
             //duckScript = duck.GetComponent<Follower>();
             //duckScript.enabled = !duckScript.enabled;
-            duckCaught = true;
-            int index = WhackPoolScript.ducks.IndexOf(gameObject);
-            WhackPoolScript.ducks.RemoveAt(index);
-            WhackPoolScript.Score++;
+            _duckCaught = true;
+            int index = whackPoolScript.ducks.IndexOf(gameObject);
+            whackPoolScript.ducks.RemoveAt(index);
+            whackPoolScript.score++;
         }
     }
 }

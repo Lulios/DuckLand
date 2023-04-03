@@ -5,10 +5,11 @@ using PathCreation;
 
 public class Pool : MonoBehaviour
 {
+    public List<GameObject> ducks;
+    [SerializeField] private List<Mesh> meshes;
     [SerializeField] private List<PathCreator> pathsCreator;
     [SerializeField] private GameObject duck;
     private bool CR_running = false;
-    public List<GameObject> ducks;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,16 @@ public class Pool : MonoBehaviour
     {
         if (!CR_running && ducks.Count < 20)
         {
-            StartCoroutine(duckSpawn());
+            StartCoroutine(DuckSpawn());
         }
     }
 
-    private IEnumerator duckSpawn()
+    private IEnumerator DuckSpawn()
     {
         CR_running = true;
         ducks.Add(Instantiate(duck, gameObject.transform));
-        ducks[ducks.Count - 1].GetComponent<Follower>().pathCreator = pathsCreator[Random.Range(0, 4)];
+        ducks[^1].GetComponent<Follower>().pathCreator = pathsCreator[Random.Range(0, 4)];
+        ducks[^1].GetComponent<MeshFilter>().mesh = meshes[Random.Range(0, meshes.Count)];
         
         yield return new WaitForSeconds(Random.Range(1.0f, 3.0f));
         CR_running = false;

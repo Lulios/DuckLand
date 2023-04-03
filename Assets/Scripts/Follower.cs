@@ -1,19 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 
 public class Follower : MonoBehaviour
 {
-    public List<Mesh> Meshes;
     public PathCreator pathCreator;
     public float speed = 2;
     private float _distanceTravelled;
-    
-    void Start()
-    {
-        GetComponent<MeshFilter>().mesh = Meshes[Random.Range(0, Meshes.Count)];
-    }
 
     void Update()
     {
