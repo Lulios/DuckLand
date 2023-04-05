@@ -81,7 +81,7 @@ public class Mole : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (transform.localPosition.y >= yminToBeCaught && _duckCaught == false && CompareTag("Player"))
+        if (transform.localPosition.y >= yminToBeCaught && _duckCaught == false && col.CompareTag("Player"))
         {
             //col.gameObject.transform.SetParent(this.transform);
             //savedY = col.gameObject.transform.position.y;

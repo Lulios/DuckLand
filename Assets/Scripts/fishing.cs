@@ -45,7 +45,7 @@ public class Fishing : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(CompareTag("Duck") && !_isFished)
+        if(col.CompareTag("Duck") && !_isFished)
         {
             col.gameObject.transform.SetParent(this.transform);
             _savedY = col.gameObject.transform.position.y;
