@@ -23,18 +23,12 @@ public class Mole : MonoBehaviour
     void Start()
     {
         _defaultY = spawnPoint.transform.localPosition.y;
-<<<<<<< HEAD
-        if (GameManager.difficulty == 1 &&  Random.Range(1, 3) == 2)
-=======
         if (GameManager.difficulty == 1 && Random.Range(1, 3) == 2)
->>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
         {
             duckDiff = 3;
         }
 
         duckSpeed = duckSpeed * duckDiff;
-<<<<<<< HEAD
-=======
     }
 
     void OnDisable()
@@ -51,7 +45,6 @@ public class Mole : MonoBehaviour
             whackPoolScript.freeSpawnPoints.Add(spawnPoint);
             Destroy(gameObject);
         }
->>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
     }
 
     // Update is called once per frame

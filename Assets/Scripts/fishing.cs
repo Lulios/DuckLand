@@ -13,12 +13,8 @@ public class Fishing : MonoBehaviour
     private Follower _duckScript;
     private bool _isFished = false;
     private Pool _poolScript;
-<<<<<<< HEAD
-    private double heightToScore=1.5;
-=======
     private double heightToScore = 1.5;
 
->>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
 
     
 
@@ -26,10 +22,6 @@ public class Fishing : MonoBehaviour
     void Start()
     {
         _poolScript = FindObjectOfType<Pool>();
-        if (GameManager.difficulty == 2)
-        {
-            heightToScore = 2.5;
-        }
     }
 
     void OnEnable()
