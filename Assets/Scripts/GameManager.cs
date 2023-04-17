@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public enum gameMode { Fishing, WhackADuck };
     public gameMode modeGame;
+    public static int difficulty = 1;
 
     [SerializeField] private GameObject fishingRod;
     [SerializeField] private GameObject pool;

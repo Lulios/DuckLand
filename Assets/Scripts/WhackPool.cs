@@ -51,6 +51,7 @@ public class WhackPool : MonoBehaviour
         duckScript.wantedPosition = new Vector3(freeSpawnPoints[random].transform.localPosition.x, wantedY,
             freeSpawnPoints[random].transform.localPosition.z);
         duckScript.ducksOut = 0;
+        //duckScript.duckSpeed = 1;
         freeSpawnPoints.RemoveAt(random);
         
         yield return new WaitForSeconds(Random.Range(1.0f, 3.0f));

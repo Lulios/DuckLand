@@ -18,10 +18,17 @@ public class Mole : MonoBehaviour
     private Vector3 _duckPos;
     private Vector3 _defaultPos;
     private bool _duckCaught = false;
+    private int duckDiff = 1;
 
     void Start()
     {
         _defaultY = spawnPoint.transform.localPosition.y;
+        if (GameManager.difficulty == 1 &&  Random.Range(1, 3) == 2)
+        {
+            duckDiff = 3;
+        }
+
+        duckSpeed = duckSpeed * duckDiff;
     }
 
     // Update is called once per frame
@@ -68,7 +75,7 @@ public class Mole : MonoBehaviour
 
     private IEnumerator Delayed_DO_Change(int input)
     {
-        yield return new WaitForSeconds(Random.Range(3.0f, 6.0f));
+        yield return new WaitForSeconds(Random.Range(3.0f, 6.0f)/duckDiff);
         if (input == 0)
         {
             ducksOut = 1;
@@ -93,7 +100,15 @@ public class Mole : MonoBehaviour
             _duckCaught = true;
             int index = whackPoolScript.ducks.IndexOf(gameObject);
             whackPoolScript.ducks.RemoveAt(index);
-            whackPoolScript.score++;
+            if (duckDiff != 1)
+            {
+                whackPoolScript.score+=2;
+            }
+            else
+            {
+                whackPoolScript.score++;
+            }
+            
         }
     }
 }
