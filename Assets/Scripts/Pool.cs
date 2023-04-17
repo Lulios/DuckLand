@@ -17,6 +17,11 @@ public class Pool : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        CR_running = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

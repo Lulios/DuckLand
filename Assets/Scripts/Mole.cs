@@ -23,12 +23,35 @@ public class Mole : MonoBehaviour
     void Start()
     {
         _defaultY = spawnPoint.transform.localPosition.y;
+<<<<<<< HEAD
         if (GameManager.difficulty == 1 &&  Random.Range(1, 3) == 2)
+=======
+        if (GameManager.difficulty == 1 && Random.Range(1, 3) == 2)
+>>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
         {
             duckDiff = 3;
         }
 
         duckSpeed = duckSpeed * duckDiff;
+<<<<<<< HEAD
+=======
+    }
+
+    void OnDisable()
+    {
+        if (_duckCaught)
+        {
+            whackPoolScript.freeSpawnPoints.Add(spawnPoint);
+            Destroy(gameObject);
+        }
+        else
+        {
+            int index = whackPoolScript.ducks.IndexOf(gameObject);
+            whackPoolScript.ducks.RemoveAt(index);
+            whackPoolScript.freeSpawnPoints.Add(spawnPoint);
+            Destroy(gameObject);
+        }
+>>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
     }
 
     // Update is called once per frame
@@ -36,39 +59,38 @@ public class Mole : MonoBehaviour
     {
         _duckPos = transform.localPosition;
         _defaultPos = new Vector3(_duckPos.x,  _defaultY, _duckPos.z);
-        if (_duckCaught)
+        if (gameObject.activeSelf)
         {
-            if (Vector3.Distance(_defaultPos, _duckPos) > 0.001f)
-            { 
-                transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckCaughtSpeed * Time.deltaTime);
+            if (_duckCaught)
+            {
+                if (Vector3.Distance(_defaultPos, _duckPos) > 0.001f)
+                {
+                    transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckCaughtSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
             }
             else
             {
-                whackPoolScript.freeSpawnPoints.Add(spawnPoint);
-                Destroy(gameObject);
-            }
-        }
-        else
-        {
-            if (ducksOut == 0 && Vector3.Distance(wantedPosition, _duckPos) > 0.001f)
-            {
-                transform.localPosition = Vector3.MoveTowards(_duckPos, wantedPosition, duckSpeed * Time.deltaTime);
-            }
-            else if (ducksOut == 1 && Vector3.Distance(_defaultPos, _duckPos) > 0.001f)
-            {
-                transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckSpeed * Time.deltaTime);
-            }
-            else if (ducksOut == 0)
-            {
-                StartCoroutine(Delayed_DO_Change(ducksOut));
-                ducksOut = -1;
-            }
-            else if (ducksOut == 1)
-            {
-                int index = whackPoolScript.ducks.IndexOf(gameObject);
-                whackPoolScript.ducks.RemoveAt(index);
-                whackPoolScript.freeSpawnPoints.Add(spawnPoint);
-                Destroy(gameObject);
+                if (ducksOut == 0 && Vector3.Distance(wantedPosition, _duckPos) > 0.001f)
+                {
+                    transform.localPosition = Vector3.MoveTowards(_duckPos, wantedPosition, duckSpeed * Time.deltaTime);
+                }
+                else if (ducksOut == 1 && Vector3.Distance(_defaultPos, _duckPos) > 0.001f)
+                {
+                    transform.localPosition = Vector3.MoveTowards(_duckPos, _defaultPos, duckSpeed * Time.deltaTime);
+                }
+                else if (ducksOut == 0)
+                {
+                    StartCoroutine(Delayed_DO_Change(ducksOut));
+                    ducksOut = -1;
+                }
+                else if (ducksOut == 1)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }

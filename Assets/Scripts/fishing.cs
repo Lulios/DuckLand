@@ -3,6 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Fishing : MonoBehaviour
 {
+    public double difficultHeightScore;
     public int score = 0;
     
     [SerializeField] private XRBaseController controllerLeft;
@@ -12,7 +13,12 @@ public class Fishing : MonoBehaviour
     private Follower _duckScript;
     private bool _isFished = false;
     private Pool _poolScript;
+<<<<<<< HEAD
     private double heightToScore=1.5;
+=======
+    private double heightToScore = 1.5;
+
+>>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
 
     
 
@@ -23,6 +29,18 @@ public class Fishing : MonoBehaviour
         if (GameManager.difficulty == 2)
         {
             heightToScore = 2.5;
+        }
+    }
+
+    void OnEnable()
+    {
+        if (GameManager.difficulty == 1)
+        {
+            heightToScore = difficultHeightScore;
+        }
+        else
+        {
+            heightToScore = 1.5;
         }
     }
 

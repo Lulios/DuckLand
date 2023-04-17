@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public enum gameMode { Fishing, WhackADuck };
     public gameMode modeGame;
+<<<<<<< HEAD
     public static int difficulty = 1;
+=======
+    public static int difficulty = 0;
+>>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
 
     [SerializeField] private GameObject fishingRod;
     [SerializeField] private GameObject pool;
@@ -50,6 +54,7 @@ public class GameManager : MonoBehaviour
         }
         vRCameraFade.FadeIn();
         modeGame = gameMode.WhackADuck;
+        fishingRod.SetActive(true);
         fishingRod.SetActive(false);
         pool.SetActive(false);
         whackPool.SetActive(true);
@@ -70,6 +75,7 @@ public class GameManager : MonoBehaviour
         }
         vRCameraFade.FadeIn();
         modeGame = gameMode.Fishing;
+        fishingRod.SetActive(false);
         fishingRod.SetActive(true);
         pool.SetActive(true);
         fishingRod.GetComponent<Fishing>().score = 0;
@@ -79,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void changeDifficulty()
     {
+<<<<<<< HEAD
         if (GameManager.difficulty == 1)
         {
             GameManager.difficulty = 2;
@@ -90,6 +97,19 @@ public class GameManager : MonoBehaviour
         {
             GameManager.difficulty = 1;
             modeGame += 1 % 2;
+=======
+        if (GameManager.difficulty == 0)
+        {
+            GameManager.difficulty = 1;
+            modeGame = (gameMode)(((int)modeGame + 1) % 2);
+            ChangeGameMode();
+            difficultyName.text = "Switch to easy";
+        } 
+        else if (GameManager.difficulty == 1)
+        {
+            GameManager.difficulty = 0;
+            modeGame = (gameMode)(((int)modeGame + 1) % 2);
+>>>>>>> 3d7562a (Finalisation du décor + ajout d'un niveau de difficulté)
             ChangeGameMode();
             difficultyName.text = "Switch to hard";
         }
