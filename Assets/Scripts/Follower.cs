@@ -4,7 +4,7 @@ using PathCreation;
 public class Follower : MonoBehaviour
 {
     public PathCreator pathCreator;
-    public float speed = 2;
+    public float speed = 2 * GameManager.difficulty;
     private float _distanceTravelled;
 
     void Update()

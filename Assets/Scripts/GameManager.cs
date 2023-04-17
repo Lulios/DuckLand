@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject whackPool;
     [SerializeField] private VRCameraFade vRCameraFade;
     [SerializeField] private Text miniGameName;
+    [SerializeField] private Text difficultyName;
 
     int index = 0;
 
@@ -74,5 +75,23 @@ public class GameManager : MonoBehaviour
         fishingRod.GetComponent<Fishing>().score = 0;
         whackPool.SetActive(false);
         miniGameName.text = "Whack-A-Duck";
+    }
+
+    public void changeDifficulty()
+    {
+        if (GameManager.difficulty == 1)
+        {
+            GameManager.difficulty = 2;
+            modeGame += 1 % 2;
+            ChangeGameMode();
+            difficultyName.text = "Switch to easy";
+        } 
+        else if (GameManager.difficulty == 2)
+        {
+            GameManager.difficulty = 1;
+            modeGame += 1 % 2;
+            ChangeGameMode();
+            difficultyName.text = "Switch to hard";
+        }
     }
 }

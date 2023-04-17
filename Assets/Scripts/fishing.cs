@@ -12,6 +12,7 @@ public class Fishing : MonoBehaviour
     private Follower _duckScript;
     private bool _isFished = false;
     private Pool _poolScript;
+    private double heightToScore=1.5;
 
     
 
@@ -19,12 +20,16 @@ public class Fishing : MonoBehaviour
     void Start()
     {
         _poolScript = FindObjectOfType<Pool>();
+        if (GameManager.difficulty == 2)
+        {
+            heightToScore = 2.5;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_savedY != float.MinValue && (_duck.transform.position.y - _savedY)  > 1.5)
+        if (_savedY != float.MinValue && (_duck.transform.position.y - _savedY)  > heightToScore)
         {
             for (int i = 0; i < _poolScript.ducks.Count; i++)
             {
