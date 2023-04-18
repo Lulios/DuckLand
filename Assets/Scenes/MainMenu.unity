@@ -4198,6 +4198,7 @@ GameObject:
   - component: {fileID: 126482410}
   - component: {fileID: 126482409}
   - component: {fileID: 126482408}
+  - component: {fileID: 126482411}
   m_Layer: 7
   m_Name: FadeImage
   m_TagString: Untagged
@@ -4284,6 +4285,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126482406}
   m_CullTransparentMesh: 1
+--- !u!114 &126482411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126482406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 5
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &133837001
 GameObject:
   m_ObjectHideFlags: 0
@@ -112728,46 +112752,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8473079344946321479}
     m_Modifications:
-    - target: {fileID: 3641292202509426276, guid: 56f2ec5127f3cca418c06f9f4dc68850,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -7366503.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3641292202509426279, guid: 56f2ec5127f3cca418c06f9f4dc68850,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8473079344946321536}
-    - target: {fileID: 3641292202509426279, guid: 56f2ec5127f3cca418c06f9f4dc68850,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickReturnToMM
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641292202509426279, guid: 56f2ec5127f3cca418c06f9f4dc68850,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930220622843165900, guid: 56f2ec5127f3cca418c06f9f4dc68850,
-        type: 3}
-      propertyPath: m_Text
-      value: 'FREE Stylized PBR Textures Pack by Lumo-Art 3D
-
-        Cartoon Race
-        Track - Oval by RCC Design
-
-        Low Poly Environment Park by Palmov Island
-
-        Low
-        Poly Houses Free Pack by Palmov Island
-
-        Simple Water Shader URP by
-        IgniteCoders
-
-        Super Rubber Duck Pack by Snowconesolid
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 8930220623657694264, guid: 56f2ec5127f3cca418c06f9f4dc68850,
         type: 3}
       propertyPath: m_Pivot.x
@@ -112877,11 +112866,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Credits
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930220623657694267, guid: 56f2ec5127f3cca418c06f9f4dc68850,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f2ec5127f3cca418c06f9f4dc68850, type: 3}
