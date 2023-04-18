@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +9,11 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private VRCameraFade vRCameraFade;
     [SerializeField] private GameObject child;
+    [SerializeField] private GameObject credits;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void OnClickDuckFishing()
@@ -35,5 +35,17 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("FishingGame");
         child.SetActive(false);
         ChangeScene = true;
+    }
+
+    public void OnClickCredits()
+    {
+        child.SetActive(false);
+        credits.SetActive(true);
+    }
+
+    public void OnClickReturnToMM()
+    {
+        child.SetActive(true);
+        credits.SetActive(false);
     }
 }
