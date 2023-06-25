@@ -1,5 +1,5 @@
 # DuckLand
-This is a little VR game on the theme of ducks and amusement parks. It was developed as a student project at the UQAC (Université du Québec à Chicoutimi) for the 3D interaction and virtual reality course with the aim to propose a rehabilitation tool for people with arm injuries.
+This is a little VR game on the theme of ducks and amusement parks. It was developed as a student project at the UQAC (Université du Québec à Chicoutimi) for the 3D interaction and virtual reality course with the aim to propose a rehabilitation tool for people who suffered arm injuries or hemiplegia.
 
 The game consists of two mini-games around rubber ducks, which are presented below.
 
@@ -17,11 +17,5 @@ There is two difficulty modes. When the hard mode is enabled, some ducks will gi
 
 A scoreboard allows you to keep track of the score.
 
-## How to build
-Firstly, you need to have Unity Editor at the version 2021.3.16f1 or higher. Clone the repository and open the resulting folder in Unity Editor.
-
-If you have a Oculus/Meta VR headset, you can directly build with the "Build And Run" option in the "File" menu.
-
-If you have another headset, you need to configure the support for it in Unity before building the game. This is done in the "XR Plug-in Management" in the "Project Settings".  
-There is a video showing all the steps of this simple procedure for reference : https://www.youtube.com/watch?v=DQAwRnGAHoU  
-Once it's done, you can build with the "Build And Run" option in the "File" menu.
+## How to play
+You can download the latest release in the Releases tab of this repository to play the game.
